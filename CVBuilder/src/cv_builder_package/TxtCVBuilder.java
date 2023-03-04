@@ -16,6 +16,8 @@ public class TxtCVBuilder extends CVBuilder {
        cv.addSection(section);
     }
 
+
+    @Override
     public void saveCV(String path) {
         TxtCVPrinter.printCV(path,cv.toSting());
     }

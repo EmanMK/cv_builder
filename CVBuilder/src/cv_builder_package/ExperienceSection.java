@@ -1,27 +1,31 @@
 package cv_builder_package;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ExperienceSection extends Section {
 
-    private final String BULLET_POINT="bullet";
-    private final String NORMAL_POINT="normal";
+    public static final String BULLET_POINT="bullet";
+    public static final String NORMAL_POINT="normal";
+
+    private String paraghrapType;
 
     private String title;
     private String company;
     private String fromDate;
     private String toDate;
-    private Map<String,String> paragraphs=new HashMap<String,String>();
+    private List<String> paragraphs=new ArrayList<String>();
     
     
     public String getParagraphsString(){
         StringBuilder desc=new StringBuilder();
-        for (Map.Entry<String,String> descriptioEntry: paragraphs.entrySet()){
-            if (descriptioEntry.getKey().equals(BULLET_POINT))
-                desc.append("- "+descriptioEntry.getValue()+'\n');
-            else if (descriptioEntry.getKey().equals(NORMAL_POINT)){
-                desc.append(descriptioEntry.getValue()+'\n');
+        for (String descriptioEntry: paragraphs){
+            if (paraghrapType.equals(BULLET_POINT))
+                desc.append("- "+descriptioEntry+'\n');
+            else if (paraghrapType.equals(NORMAL_POINT)){
+                desc.append(descriptioEntry+'\n');
             }
         }
         return desc.toString();
@@ -46,10 +50,16 @@ public class ExperienceSection extends Section {
     public String getCompany() {
         return company;
     }
-    public void setParagraphs(Map<String, String> paragraphs) {
+    public void setParaghrapType(String paraghrapType) {
+        this.paraghrapType = paraghrapType;
+    }
+    public String getParaghrapType() {
+        return paraghrapType;
+    }
+    public void setParagraphs(List<String> paragraphs) {
         this.paragraphs = paragraphs;
     }
-    public Map<String, String> getParagraphs() {
+    public List<String> getParagraphs() {
         return paragraphs;
     }
     public void setFromDate(String fromDate) {

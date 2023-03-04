@@ -14,6 +14,7 @@ public class TxtCVPrinter {
  
         try {
             Files.writeString(path, cvContent,StandardCharsets.UTF_8);
+            System.out.print("cv saved successfuly");
         }catch (IOException ex) {
             System.out.print("Invalid Path! CV hasn't been saved.");
         }

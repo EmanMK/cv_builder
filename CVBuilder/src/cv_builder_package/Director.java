@@ -1,9 +1,10 @@
 package cv_builder_package;
 
 public class Director {
-    private CVBuilder cvBuilder;
+    private static CVBuilder cvBuilder;
 
-    public void construct(){
+    public static void construct(){
         cvBuilder=new TxtCVBuilder();
+        UI.showMainInterface(cvBuilder);
     }
 }
