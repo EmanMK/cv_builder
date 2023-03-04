@@ -14,14 +14,22 @@ public class CV {
         }
         return true;
     }
-
+    private void deleteSection(Section section){
+        for(Section sectionTemp:sections){
+            if(section==sectionTemp){
+                sections.remove(sectionTemp);
+            }
+        }
+    }
     public void addSection(Section section){
         if(section != null){
             if(section.getClass().getSimpleName().equals(SectionsEnum.valueOf("InformationSection").toString())){
-                if(noInformaitonSection())
-                    sections.add(section);
+                if(!noInformaitonSection()){
+                    deleteSection(section);
+                }
+
             }
-            else if(section != null) sections.add(section);
+            sections.add(section);
         }else{
             System.out.println("section is null, adding secion failed!");
         }

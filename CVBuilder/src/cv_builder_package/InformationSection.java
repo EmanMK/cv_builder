@@ -6,15 +6,6 @@ public class InformationSection extends Section {
     private String phone;
     private String email;
     private String address;
-    private static InformationSection instence=null;
-
-    private InformationSection(){};
-    public static InformationSection getInstence(){
-        if(instence==null){
-            instence=new InformationSection();
-        }
-        return instence;
-    }
 
     @Override
     public String toString() {
